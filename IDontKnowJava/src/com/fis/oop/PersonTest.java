@@ -13,6 +13,6 @@ public class PersonTest {
 		System.out.println(p2.getName() + " , " + p2.getAge());
 		System.out.println(p3.getName() + " , " + p3.getAge());
 
-		System.out.println(Person.getPopulation());
+		//System.out.println(Person.getPopulation());
 	}
 }

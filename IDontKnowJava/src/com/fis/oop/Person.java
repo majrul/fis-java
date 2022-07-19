@@ -3,23 +3,23 @@ package com.fis.oop;
 public class Person {
 
 	private String name;
-	private int age;
+	private static int age;
 
-	private static int population;
+	//private static int population;
 	
 	public Person() {
-		population ++;
+		//population ++;
 		
 	}
 	public Person(String name, int age) {
-		population ++;
+		//population ++;
 		this.name = name;
 		this.age = age;
 	}
 
-	public static int getPopulation() {
+	/*public static int getPopulation() {
 		return population;
-	}
+	}*/
 
 	public String getName() {
 		return name;
