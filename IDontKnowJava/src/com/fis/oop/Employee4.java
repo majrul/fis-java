@@ -2,15 +2,15 @@ package com.fis.oop;
 
 import java.time.LocalDate;
 
-public class Employee3 {
+public class Employee4 {
 
-	int empno;
-	String name;
-	double salary;
-	LocalDate dateOfJoining;
+	private int empno;
+	private String name;
+	private double salary;
+	private LocalDate dateOfJoining;
 
 	//constructor
-	Employee3(int empno, String name, double salary, LocalDate dateOfJoining) {
+	public Employee4(int empno, String name, double salary, LocalDate dateOfJoining) {
 		super();
 		this.empno = empno;
 		this.name = name;
@@ -18,7 +18,7 @@ public class Employee3 {
 		this.dateOfJoining = dateOfJoining;
 	}
 
-	void info() {
+	public void info() {
 		System.out.println("-------------");
 		System.out.println("Empno = " + this.empno);
 		System.out.println("Name = " + this.name);
@@ -28,10 +28,10 @@ public class Employee3 {
 	
 	public static void main(String[] args) {
 		//creating an object reference
-		Employee3 emp1 = new Employee3(1001, "Harsh", 30000, LocalDate.of(2022, 6, 30));		
+		Employee4 emp1 = new Employee4(1001, "Harsh", 30000, LocalDate.of(2022, 6, 30));		
 		emp1.info();
 
-		Employee3 emp2 = new Employee3(1002, "Mohit", 30000, LocalDate.of(2022, 6, 30));
+		Employee4 emp2 = new Employee4(1002, "Mohit", 30000, LocalDate.of(2022, 6, 30));
 		emp2.info();
 				
 	}
