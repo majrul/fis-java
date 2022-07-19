@@ -54,10 +54,10 @@ public class Employee5 {
 		//creating an object reference
 		//compiler provides the default constructor
 		Employee5 emp1 = new Employee5();	
-		emp1.setEmpno(1001);
-		emp1.setName("Harsh");
-		emp1.setSalary(30000);
-		emp1.setDateOfJoining(LocalDate.of(2022, 6, 30));
+		//emp1.setEmpno(1001);
+		//emp1.setName("Harsh");
+		//emp1.setSalary(30000);
+		//emp1.setDateOfJoining(LocalDate.of(2022, 6, 30));
 		emp1.info();
 
 		Employee5 emp2 = new Employee5();
