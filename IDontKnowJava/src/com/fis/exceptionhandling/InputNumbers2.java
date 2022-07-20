@@ -1,24 +1,26 @@
 package com.fis.exceptionhandling;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class InputNumbers2 {
 
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		
-		System.out.println("Hello\nEveryone");
-		
-		System.out.println("Enter number 1");
-		//int x = s.nextInt();
 		int x = 0;
 		try {
 			x = Integer.parseInt(s.nextLine());
+			Connection conn = DriverManager.getConnection("", "", "");
 		}
 		catch(NumberFormatException e) {
 			System.out.println("You seem to have entered a wrong number. Please enter only digits!");
 			System.out.println("Enter number 1 again");
 			x = Integer.parseInt(s.nextLine());
+		}
+		catch(SQLException e) {
+			System.out.println("Unable to connect..");
 		}
 		
 		System.out.println("Enter number 2");
