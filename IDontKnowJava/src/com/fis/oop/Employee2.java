@@ -17,7 +17,7 @@ public class Employee2 {
 		System.out.println("Date of Joining = " + dateOfJoining);
 	}
 	
-	public static void main(String[] args) {
+	void doSomething(String[] args) {
 		//creating an object reference
 		Employee2 emp1 = new Employee2();
 		emp1.empno = 1001;

@@ -1,6 +1,6 @@
 package com.fis.oop.abstractmethods;
 
-public class MyCalculator extends Calculator {
+public class MyCalculator implements Calculator {
 
 	@Override
 	public void add(int x, int y) {
