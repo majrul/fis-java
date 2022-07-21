@@ -19,6 +19,7 @@ public class BankAccount {
 	void withdraw(double amount) throws AccountException {
 		if(amount > balance) {
 			//Exception e = new Exception("Insufficient Balance!");
+			//RuntimeException e = new RuntimeException("Insufficient Balance!");
 			AccountException e = new AccountException("Insufficient Balance!");
 			throw e;
 		}
