@@ -2,6 +2,7 @@ package com.fis.oop.collection;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Example1 {
@@ -39,6 +40,9 @@ public class Example1 {
 		
 		System.out.println("---- using lambda for each ----");
 		list.forEach(str -> System.out.println(str));
+		
+		//Iterator is used by default internally when we use
+		//for each loop of Java
 		
 		System.out.println("---- using traditional Iterator API ----");
 		Iterator<String> itr = list.iterator();

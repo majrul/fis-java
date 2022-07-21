@@ -17,5 +17,7 @@ public class Example2 {
 		list.add(new Person("Prashant", 23));
 		
 		//practice for loop now
+		for(Person p : list)
+			System.out.println(p);
 	}
 }
