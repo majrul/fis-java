@@ -8,7 +8,7 @@ import com.fis.oop.api.Person;
 public class Example3 {
 
 	public static void main(String[] args) {
-		Set<String> set = new HashSet<>();
+		Set<String> set = new HashSet<>(); //LinkedHashSet
 		set.add("Java");
 		set.add("Oracle");
 		set.add("Python");

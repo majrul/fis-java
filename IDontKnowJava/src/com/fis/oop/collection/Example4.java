@@ -9,7 +9,7 @@ public class Example4 {
 
 	public static void main(String[] args) {
 		//ip-address as the key, username as the value
-		Map<String, String> map = new HashMap<>();
+		Map<String, String> map = new HashMap<>(); //LinkedHashMap
 		map.put("192.168.1.1", "majrul");
 		map.put("192.168.1.2", "afaq");
 		map.put("192.168.1.3", "gokul");
