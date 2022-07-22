@@ -1,1 +1,3 @@
-Hello Everyone. Learning Java is fun!
+hellowelcomejust checking
+how are you?
+i am fine
