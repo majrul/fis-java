@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-class EmployeeSorter implements Comparator<Employee> {
+class EmployeeComparator implements Comparator<Employee> {
 
 	@Override
 	public int compare(Employee e1, Employee e2) {
@@ -33,13 +33,18 @@ public class Example5 {
 			System.out.println(no);
 		
 		List<Employee> listOfEmps = new ArrayList<>();
+		//Employee e1 = new Employee();
+		//listOfEmps.add(e1);
 		listOfEmps.add(new Employee(1005, "Abhishek", 20000));
 		listOfEmps.add(new Employee(1003, "Abhishek", 15000));
 		listOfEmps.add(new Employee(1001, "Prakash", 15000));
 		listOfEmps.add(new Employee(1004, "Charith", 30000));
 		listOfEmps.add(new Employee(1002, "Chitra", 20000));
 		
-		Collections.sort(listOfEmps, new EmployeeSorter());
+		EmployeeComparator comp = new EmployeeComparator();
+		Collections.sort(listOfEmps, comp);
+		//Collections.sort(listOfEmps, new EmployeeSorter());
+		//listOfEmps.sort(new EmployeeSorter());
 		
 		for(Employee emp : listOfEmps)
 			System.out.println(emp);
