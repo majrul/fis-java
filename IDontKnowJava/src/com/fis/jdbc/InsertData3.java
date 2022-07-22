@@ -16,21 +16,28 @@ public class InsertData3 {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/training", "root", "passw0rd");
 			st = conn.prepareStatement("insert into tbl_product(name, price, quantity) values(?, ?, ?)");
 			
-			Scanner s = new Scanner(System.in);
-			System.out.println("Enter product name");
-			String name = s.nextLine();
-			System.out.println("Enter price");
-			double price = Double.parseDouble(s.nextLine());
-			System.out.println("Enter quantity");
-			int quantity = Integer.parseInt(s.nextLine());
+			String ans = "";
+			do {
+				Scanner s = new Scanner(System.in);
+				System.out.println("Enter product name");
+				String name = s.nextLine();
+				System.out.println("Enter price");
+				double price = Double.parseDouble(s.nextLine());
+				System.out.println("Enter quantity");
+				int quantity = Integer.parseInt(s.nextLine());
+	
+				//now substituting ? with the actual data
+				st.setString(1, name);
+				st.setDouble(2, price);
+				st.setInt(3, quantity);
+				st.executeUpdate();
 
-			//now substituting ? with the actual data
-			st.setString(1, name);
-			st.setDouble(2, price);
-			st.setInt(3, quantity);
-			st.executeUpdate();
+				System.out.println("Record inserted..");
+				
+				System.out.println("Do you wish to continue (y/n) ?");
+				ans = s.nextLine();
+			} while(ans.equals("y"));
 			
-			System.out.println("Record inserted..");
 		}
 		catch(ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
