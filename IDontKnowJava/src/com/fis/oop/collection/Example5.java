@@ -42,7 +42,8 @@ public class Example5 {
 		listOfEmps.add(new Employee(1002, "Chitra", 20000));
 		
 		EmployeeComparator comp = new EmployeeComparator();
-		Collections.sort(listOfEmps, comp);
+		//Collections.sort(listOfEmps, comp);
+		Collections.sort(listOfEmps, (e1, e2) -> Double.compare(e1.getSalary(), e2.getSalary()));
 		//Collections.sort(listOfEmps, new EmployeeSorter());
 		//listOfEmps.sort(new EmployeeSorter());
 		
