@@ -21,5 +21,8 @@ public class App {
 		
 		CurrencyConverter cc = (CurrencyConverter) ctx.getBean("currConv");
 		System.out.println(cc.convert("USD", "INR", 75));
+		
+		LoginService loginServ = (LoginService) ctx.getBean("login");
+		System.out.println(loginServ.isValid("majrul", "456"));
 	}
 }
