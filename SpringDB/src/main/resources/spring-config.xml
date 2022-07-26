@@ -6,12 +6,7 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- bean definitions here -->
-    <!-- classes whose object will be created by Spring -->
-	<bean id="hello" class="com.fis.component.HelloWorld" scope="prototype" />
-	<bean id="calc" class="com.fis.component.Calculator" />
-	
 	<!-- loading annotated beans -->
-	<context:component-scan base-package="com.fis.component" />
+	<context:component-scan base-package="com.demo" />
 	
 </beans>
