@@ -1,27 +1,30 @@
 package com.demo;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component("carPartsInv1")
-public class CarPartsInventoryImpl1 implements CarPartsInventory {
+@Component("carPartsInv2")
+public class CarPartsInventoryImpl2 implements CarPartsInventory {
+
+	@Autowired
+	@Qualifier("dataSource1")
+	private DataSource dataSource;
 
 	public void addNewPart(CarPart carPart) {
 		Connection conn = null;
 		PreparedStatement st = null;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			//long ms1 = System.currentTimeMillis();
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/training", "root", "passw0rd");
-			//long ms2 = System.currentTimeMillis();
-			//System.out.println("Approx time to connect : " + (ms2 - ms1) +" ms");
+			conn = dataSource.getConnection();
 			st = conn.prepareStatement("insert into tbl_carpart values(?, ?, ?, ?, ?)");
 			
 			st.setInt(1, carPart.getPartNo());
@@ -31,7 +34,7 @@ public class CarPartsInventoryImpl1 implements CarPartsInventory {
 			st.setInt(5, carPart.getQuantity());
 			st.executeUpdate();
 		}
-		catch(Exception e) {
+		catch(SQLException e) {
 			e.printStackTrace();
 		}
 		finally {
@@ -44,12 +47,11 @@ public class CarPartsInventoryImpl1 implements CarPartsInventory {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/training", "root", "passw0rd");
+			conn = dataSource.getConnection();
 			st = conn.prepareStatement("select * from tbl_carpart");
 			rs = st.executeQuery();
 			
-			List<CarPart> list = new ArrayList<>();
+			List<CarPart> list = new ArrayList<CarPart>();
 			while(rs.next()) {
 				CarPart cp = new CarPart();
 				cp.setPartNo(rs.getInt("part_no"));
@@ -61,7 +63,7 @@ public class CarPartsInventoryImpl1 implements CarPartsInventory {
 			}
 			return list;
 		}
-		catch(ClassNotFoundException | SQLException e) {
+		catch(SQLException e) {
 			e.printStackTrace();
 			return null; //bad, rather we should have thrown the exception
 		}

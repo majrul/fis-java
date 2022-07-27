@@ -38,6 +38,9 @@ public class CarPart {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "CarPart [partNo=" + partNo + ", partName=" + partName + ", carModel=" + carModel + ", price=" + price
+				+ ", quantity=" + quantity + "]";
+	}
 }
