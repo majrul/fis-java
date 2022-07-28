@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component("carPartsInv5")
 public class CarPartsInventoryImpl5 implements CarPartsInventory {
@@ -14,6 +15,7 @@ public class CarPartsInventoryImpl5 implements CarPartsInventory {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
+	@Transactional
 	public void addNewPart(CarPart carPart) {
 		entityManager.persist(carPart); //persist will generate insert query
 	}

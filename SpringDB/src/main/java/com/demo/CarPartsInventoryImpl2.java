@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class CarPartsInventoryImpl2 implements CarPartsInventory {
 
 	@Autowired
-	@Qualifier("dataSource1")
+	//@Qualifier("dataSource1")
 	private DataSource dataSource;
 
 	public void addNewPart(CarPart carPart) {
