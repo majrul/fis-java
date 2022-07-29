@@ -19,7 +19,10 @@ public class CarPart {
 	@Column(name = "car_model")
 	private String carModel;
 	
+	@Column(name = "price")
 	private double price;
+	
+	@Column(name = "quantity")
 	private int quantity;
 	
 	public int getPartNo() {

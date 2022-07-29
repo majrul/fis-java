@@ -8,7 +8,7 @@ import java.util.List;
 public class Example1 {
 
 	public static void main(String[] args) {
-		List<String> list = new ArrayList<>();
+		List<String> list = new LinkedList<>();
 		//<> angular bracket notation in the above code is called as Generics in Java
 		list.add("Java");
 		list.add("Oracle");
