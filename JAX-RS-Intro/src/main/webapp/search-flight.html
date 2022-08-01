@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Welcome to BreakMyTrip.com</title>
+<script>
+	function search() {
+		let from = document.getElementById("from").value;
+		let to = document.getElementById("to").value;
+		//alert(from + " " + to);
+		
+		let url = 'http://localhost:8080/JAX-RS-Intro/api/flight/search?from=' + from + '&to=' + to;
+		//alert(url);
+		
+		const oReq = new XMLHttpRequest();
+		oReq.onload = function(e) {
+			 //alert(oReq.response);
+			 var availableFlights = JSON.parse(oReq.response);
+			 //alert(availableFlights);
+			 for(let flight of availableFlights)
+				 //alert(flight.departureTime);
+			 	document.getElementById("result").innerHTML += "<p>" + flight.departureTime + "</p>";
+		}
+		oReq.open("GET", url);
+		oReq.send();
+
+		return false;
+	}
+</script>
+</head>
+<body>
+
+<form onsubmit="return search()">
+From : 
+<select id="from">
+	<option value="Mumbai">Mumbai</option>
+	<option value="Delhi">Delhi</option>
+	<option value="Chennai">Chennai</option>
+	<option value="Bangalore">Bangalore</option>
+</select>
+<br />
+To : 
+<select id="to">
+	<option value="Delhi">Delhi</option>
+	<option value="Mumbai">Mumbai</option>
+	<option value="Chennai">Chennai</option>
+	<option value="Bangalore">Bangalore</option>
+</select>
+<br />
+<button type="submit">Search</button>
+</form>
+
+<div id="result"></div>
+</body>
+</html>
