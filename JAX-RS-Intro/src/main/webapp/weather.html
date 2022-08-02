@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function fetchWeather() {
+		navigator.geolocation.getCurrentPosition(function(position) {
+			var lat = position.coords.latitude;
+			var lon = position.coords.longitude;
+			
+			var url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=138b91f7502c917df454a94449df5c18';
+			const oReq = new XMLHttpRequest();
+			oReq.onload = function(e) {
+				 //alert(oReq.response);
+				 var data = JSON.parse(oReq.response);
+				 document.getElementById("result").innerHTML = data.weather[0].main;
+				 document.getElementById("result").innerHTML += data.main.temp - 273.15;
+			}
+			oReq.open("GET", url);
+			oReq.send();
+		});		
+	}
+</script>
+</head>
+<body>
+<button onclick="fetchWeather()">Click here</button> to fetch the weather in your city..
+<div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function add() {
+	var flightObj = {
+			flightNo : document.getElementById("flightNo").value,
+			carrier : document.getElementById("carrier").value,
+			departureTime : document.getElementById("departureTime").value,
+			arrivalTime : document.getElementById("arrivalTime").value,
+			source : document.getElementById("source").value,
+			destination : document.getElementById("destination").value
+	}
+	
+	//console.log(flightObj);
+	//console.log(JSON.stringify(flightObj));
+	
+	var url = "http://localhost:8080/JAX-RS-Intro/api/flight/add";
+	
+	const oReq = new XMLHttpRequest();
+	oReq.onload = function(e) {
+		alert(oReq.response);
+	}
+	oReq.open("POST", url);
+	oReq.setRequestHeader("Content-Type", "application/json");
+	oReq.send(JSON.stringify(flightObj));
+
+	
+	return false;
+} 
+</script>
+</head>
+<body>
+<form onsubmit="return add()">
+	<div>
+		<label>Enter Flight No</label>
+		<input type="text" id="flightNo" />
+	</div>
+	<div>
+		<label>Enter Carrier Name</label>
+		<input type="text" id="carrier" />
+	</div>
+	<div>
+		<label>Enter Departure Time</label>
+		<input type="time" id="departureTime" />
+	</div>
+	<div>
+		<label>Enter Arrival Time</label>
+		<input type="time" id="arrivalTime" />
+	</div>
+	<div>
+		<label>Enter Source</label>
+		<input type="text" id="source" />
+	</div>
+	<div>
+		<label>Enter Destination</label>
+		<input type="text" id="destination" />
+	</div>
+	<div>
+		<button type="submit">Add</button>
+	</div>
+</form>
+</body>
+</html>

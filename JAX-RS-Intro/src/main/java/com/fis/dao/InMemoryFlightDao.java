@@ -9,9 +9,9 @@ import com.fis.entity.Flight;
 
 public class InMemoryFlightDao {
 
-	private List<Flight> listOfFlights;
+	private static List<Flight> listOfFlights;
 	
-	public InMemoryFlightDao() {
+	static {
 		listOfFlights = new ArrayList<>();
 		listOfFlights.add(new Flight(101, "Air India", "Mumbai", "Delhi", LocalTime.of(11, 30), LocalTime.of(13, 45)));
 		listOfFlights.add(new Flight(102, "Spicejet", "Delhi", "Bangalore", LocalTime.of(17, 30), LocalTime.of(19, 10)));
@@ -27,6 +27,14 @@ public class InMemoryFlightDao {
 		listOfFlights.add(new Flight(112, "Vistara", "Chennai", "Bangalore", LocalTime.of(10, 30), LocalTime.of(12, 30)));
 	}
 	
+	public void add(Flight flight) {
+		listOfFlights.add(flight);
+	}
+	
+	public List<Flight> getAll() {
+		return listOfFlights;
+	}
+	
 	public List<Flight> getAvailableFlights(String from, String to) {
 		/*List<Flight> list = new ArrayList<>();
 		for(Flight flight : listOfFlights)
@@ -37,6 +45,13 @@ public class InMemoryFlightDao {
 				.stream()
 				.filter(flight -> flight.getSource().equals(from) && flight.getDestination().equals(to))
 				.collect(Collectors.toList());
+	}
+
+	public Flight getFlight(int flightNo) {
+		for(Flight flight : listOfFlights)
+			if(flight.getFlightNo() == flightNo)
+				return flight;
+		return null; //rather we should throw an exception
 	}
 
 }
