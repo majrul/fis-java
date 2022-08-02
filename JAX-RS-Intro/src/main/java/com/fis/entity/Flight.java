@@ -2,6 +2,9 @@ package com.fis.entity;
 
 import java.time.LocalTime;
 
+//import javax.xml.bind.annotation.XmlRootElement;
+
+//@XmlRootElement
 public class Flight {
 
 	private int flightNo;

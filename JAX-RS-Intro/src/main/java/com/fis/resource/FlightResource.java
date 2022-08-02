@@ -2,11 +2,14 @@ package com.fis.resource;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 
 import com.fis.dao.InMemoryFlightDao;
 import com.fis.entity.Flight;
@@ -37,6 +40,7 @@ public class FlightResource {
 	//http://localhost:8080/JAX-RS-Intro/api/flight/101
 	@GET
 	@Path("/{flightNo}")
+	//@Produces("application/xml")
 	public Flight getFlight(@PathParam("flightNo") int flightNo) {
 		Flight flight = dao.getFlight(flightNo);
 		return flight;
@@ -50,6 +54,10 @@ public class FlightResource {
 	
 	@POST
 	@Path("/add")
+	//@Consumes("application/json")
+	//@Produces("text/plain")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
 	public String add(Flight flight) {
 		dao.add(flight);
 		
