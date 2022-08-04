@@ -30,4 +30,10 @@ class SpringBootJaxRsIntroApplicationTests {
 		int id = customerRepository.findIfCustomerExists("majrul@gmail.com");
 		System.out.println(id);
 	}
+	
+	@Test
+	void checkCustomerByEmailAndPassword() {
+		Customer customer = customerRepository.findByEmailAndPassword("majrul@gmail.com", "123");
+		System.out.println(customer);
+	}
 }
